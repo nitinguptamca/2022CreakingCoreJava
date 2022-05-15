@@ -1,4 +1,4 @@
-package com.hardQuestion.arrayConcept.hibernateImmutable;/*
+package com.j2eeconcept.hibernateImmutable;/*
 package concept.clear.prectise.hibernateImmutable;
 
 import javax.persistence.*;

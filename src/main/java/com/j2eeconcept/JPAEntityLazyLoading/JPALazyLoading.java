@@ -1,4 +1,4 @@
-package com.hardQuestion.arrayConcept.JPAEntityLazyLoading;/*
+package com.j2eeconcept.JPAEntityLazyLoading;/*
 package concept.clear.prectise.JPAEntityLazyLoading;
 
 import javax.persistence.*;

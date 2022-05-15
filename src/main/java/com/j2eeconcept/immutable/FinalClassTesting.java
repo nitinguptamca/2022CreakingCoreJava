@@ -1,4 +1,4 @@
-package com.hardQuestion.arrayConcept.immutable;
+package com.j2eeconcept.immutable;
 
 public final class FinalClassTesting {
     final String fname;
