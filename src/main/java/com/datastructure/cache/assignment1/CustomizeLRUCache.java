@@ -1,27 +1,42 @@
-package com.datastructure.cache.generic.app1;
+package com.datastructure.cache.assignment1;
 
+
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-class Cache<K ,V> {
-    K key;
-    V value;
-    Cache prev;
-    Cache next;
-    public Cache(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
-}
+/**
+ * <li>
+ *         I want to manage cache of all active users.<br>
+ *         make user history if he is active last 10 minutes  and must be part of cache.<br>
+ *         if user inactive more than 10 minutes then remove from cache.    <br>
+ *         if user login more than 3 times with in 10 minutes then block user for certain period of time.
+ * </li>
+ */
 
-public class LRUCache<K ,V> {
+
+
+public class CustomizeLRUCache <K extends Comparable<K>,V>{
+    
+    private static class Cache<K extends Comparable<K>,V>{
+        K key;
+        V value;
+        LocalDateTime startTime;
+        Cache<K ,V> next,prev;
+
+        public Cache(K key, V value, LocalDateTime startTime) {
+            this.key = key;
+            this.value = value;
+            this.startTime = startTime;
+        }
+    }
 
     int capacity;
     Map<K, Cache<K,V>> map = new HashMap<>();
     Cache head = null;
     Cache end = null;
 
-    public LRUCache(int capacity) {
+    public CustomizeLRUCache(int capacity) {
         this.capacity = capacity;
     }
 
@@ -67,16 +82,16 @@ public class LRUCache<K ,V> {
             delete(old);
             setHead(old);
         } else {
-            Cache<K,V> newNode = new Cache(key, value);
+            Cache<K,V> newCache = new Cache(key, value ,LocalDateTime.now());
             if (map.size() >= capacity) {
                 map.remove(end.key);
                 // remove last node
                 delete(end);
-                setHead(newNode);
+                setHead(newCache);
             } else {
-                setHead(newNode);
+                setHead(newCache);
             }
-            map.put(key, newNode);
+            map.put(key, newCache);
         }
     }
 }
