@@ -1,0 +1,1 @@
+https://hackernoon.com/optimistic-and-pessimistic-locking-in-jpa
