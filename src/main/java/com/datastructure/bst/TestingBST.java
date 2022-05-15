@@ -14,9 +14,16 @@ public class TestingBST {
         bst.insert(11);
         bst.inOrderTraverse(bst.getRoot());
         System.out.println();
-        bst.preOrderTraverse(bst.getRoot());
-        System.out.println();
-        bst.postOrderTraverse(bst.getRoot());
-        System.out.println();
+        // bst.preOrderTraverse(bst.getRoot());
+        // System.out.println();
+        //  bst.postOrderTraverse(bst.getRoot());
+        //  System.out.println();
+        //  bst.delete(5);
+        bst.levelOrderTraversal(bst.getRoot());
+        System.out.println("\n"+bst.height_approach2(bst.getRoot()));
+        System.out.println("\n  height "+bst.height(bst.getRoot()));
+        System.out.println("\n count node  :: "+bst.countNode(bst.getRoot()));
+        System.out.println("**********************");
+        bst.traverseZigZag(bst.getRoot());
     }
 }
