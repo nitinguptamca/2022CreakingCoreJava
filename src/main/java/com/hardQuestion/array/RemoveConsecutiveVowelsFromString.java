@@ -16,9 +16,16 @@ public class RemoveConsecutiveVowelsFromString {
     //  static String input = "geeks for geeks";
     static String input = "your article is in queue";
     static String expectedOutput = "yor article is in qu";
-    static String output="";
 
-    public static void main(String[] args) {
+    static String input1 = "youur artaeicle isau in queue";
+    static String expectedOutput1 = "yor artacle isa in qu";
+
+   public static void main(String[] args) {
+        solution1(input1);
+    }
+
+    public static void solution1(String input) {
+        String output="";
         boolean flag =false;
         for (int i = 1; i < input.length(); i++) {
             if(is_vow(input.charAt(i-1))  && is_vow(input.charAt(i)) ){
