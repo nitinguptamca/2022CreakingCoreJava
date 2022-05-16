@@ -1,5 +1,9 @@
 package com.datastructure.sll;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
 public class SingleLinkedList<T extends Comparable<T>> {
 
     private Node<T> head, tail;
@@ -25,7 +29,7 @@ public class SingleLinkedList<T extends Comparable<T>> {
 
 
     private void quickSort(Node<T> firstNode, Node<T> lastNode) {
-        if (firstNode != lastNode && firstNode != lastNode.next ) {
+        if (firstNode != lastNode && firstNode != lastNode.next) {
             Node<T> temp = partition(firstNode, lastNode);
             quickSort(firstNode, temp);
             quickSort(temp.next, lastNode);
@@ -49,8 +53,6 @@ public class SingleLinkedList<T extends Comparable<T>> {
         }
         return p;
     }
-
-
 
 
     public void addAtFirst(T data) {
@@ -342,18 +344,63 @@ public class SingleLinkedList<T extends Comparable<T>> {
     }
 
     public void mergeList(Node<T> head, Node<T> head1) {
-        Node<T> t =tail;
-        Node<T> s =head1;
+        Node<T> t = tail;
+        Node<T> s = head1;
 
-        while (s!=null){
-            t.next=s;
-            tail=s;
-            s=s.next;
+        while (s != null) {
+            t.next = s;
+            tail = s;
+            s = s.next;
             size++;
-            if(t.next==s.next) break;
+            if (t.next == s.next) break;
         }
     }
 
+    /**
+     * Input: 20->4->54->6->NULL <br>
+     * Output: No loop is detected. <br>
+     * Explanation: <br>
+     * While traversing the linked list, we reach the end of the linked list. Therefore, no loop is present in the linked list.
+     * <p></p>
+     * Input: 20->4->5->10->20 <br>
+     * Output: Loop detected. <br>
+     * Explanation: <br>
+     * While traversing the linked list, reaching the node with value 10, it is linked with the head node, which depicts a loop in the linked list. Therefore, a loop is present in the linked list.
+     */
+
+    public boolean detectCycleInLinkedList(Node<T> node) {
+        if (head == null) {
+            return false;
+        } else {
+            HashSet<Node> visited = new HashSet<Node>();
+            boolean flag = false;
+            Node tmp = head;
+            while (tmp != null) {
+                if (visited.contains(tmp))
+                    return true;
+                visited.add(tmp);
+                tmp = tmp.next;
+            }
+            return false;
+        }
+    }
+
+    public boolean detectCycleInLinkedList_app2(Node<T> node) {
+        if (head == null) {
+            return false;
+        } else {
+            Map<Node, Boolean> visited = new HashMap<>();
+            boolean flag = false;
+            Node tmp = head;
+            while (tmp != null) {
+                if (visited.containsKey(tmp))
+                    return true;
+                visited.put(tmp, true);
+                tmp = tmp.next;
+            }
+            return false;
+        }
+    }
 
     private static class Node<T extends Comparable<T>> {
         T data;

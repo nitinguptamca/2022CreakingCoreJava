@@ -1,6 +1,10 @@
 package com.datastructure.sll;
 
 public class TestingSLL {
+
+
+
+
     public static void main(String[] args) {
         SingleLinkedList<Integer> list = new SingleLinkedList<>();
         list.addAtFirst(10);
@@ -8,6 +12,8 @@ public class TestingSLL {
         list.addAtFirst(20);
         list.addAtFirst(30);
         list.addAtFirst(40);
+        list.addAtFirst(11);
+        System.out.println(list.detectCycleInLinkedList(list.getHead()));
        /* list.addAtLast(10);
         list.addAtLast(20);
         list.addAtLast(30);
@@ -37,20 +43,20 @@ public class TestingSLL {
         //  list.removeAtMiddle();
         // list.printAll();
         //list.removeFromLastPosition(2);
-       // list.printAll();
+        // list.printAll();
         ///list.removeFromLastPosition(2);
-     //  list.printAll();
-      //  list.removeDuplicate();
-       // list.printAll();
+        //  list.printAll();
+        //  list.removeDuplicate();
+        // list.printAll();
         //list.sortBubble();
-      //  list.printAll();
+        //  list.printAll();
         //list.reverseOrder();
-       // list.printAll();
+        // list.printAll();
         //list.mergeSort();
         list.printAll();
-       /// SingleLinkedList.Node<Integer> vvv = list.sortedMerge(list.getHead(), list.getHead());
-        list.quickSort(list.getHead());
-        list.printAll();
+        /// SingleLinkedList.Node<Integer> vvv = list.sortedMerge(list.getHead(), list.getHead());
+        ///  list.quickSort(list.getHead());
+        // list.printAll();
 
     }
 }
