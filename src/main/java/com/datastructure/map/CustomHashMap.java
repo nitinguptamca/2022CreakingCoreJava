@@ -1,5 +1,7 @@
 package com.datastructure.map;
 
+import  java.util.LinkedHashMap;
+
 public class CustomHashMap<K extends Comparable<K>, V> {
     private Entry<K, V>[] table = null;
 
@@ -21,7 +23,7 @@ public class CustomHashMap<K extends Comparable<K>, V> {
         table = new Entry[capacity];
     }
 
-    private static class Entry<K extends Comparable<K>, V> {
+    static class Entry<K extends Comparable<K>, V> {
         K key;
         V value;
         Entry<K, V> next;
