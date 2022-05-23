@@ -9,6 +9,9 @@ public class IdentityHashMap {
         String name = "my name is nitin kumar gupta";
         //find first  repeating character
 
+        String sss="abc";
+       int sssss= System.identityHashCode(sss);
+
         Character firstValue = name
                 .chars()
                 .mapToObj(c -> Character.valueOf((char) c))

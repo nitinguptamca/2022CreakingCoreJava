@@ -6,7 +6,7 @@ public class AnagramTest {
     public static void main(String[] args) {
 
         System.out.println(isAnagramCounting("asdfg" ,"fsdag"));
-        System.out.println(isAnagram("asdfg" ,"fsdag"));
+      //  System.out.println(isAnagram("asdfg" ,"fsdag"));
     }
 
     private static boolean isAnagram(String string1, String string2) {
