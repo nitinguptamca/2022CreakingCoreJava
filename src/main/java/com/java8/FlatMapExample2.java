@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * Stream<String[]>      -> flatMap ->	Stream<String>  <br>
  * Stream<Set<String>>   -> flatMap ->	Stream<String>  <br>
@@ -17,7 +20,9 @@ public class FlatMapExample2 {
     public static void main(String[] args) {
 
         List<Order> orders = findAll();
-
+        Map<String ,String> map = new LinkedHashMap<>();
+        map.put("k2","k2");  map.put("k1","k1");
+        map.get("k1");
         /*
             Stream<List<LineItem>> listStream = orders.stream()
                     .map(order -> order.getLineItems());
