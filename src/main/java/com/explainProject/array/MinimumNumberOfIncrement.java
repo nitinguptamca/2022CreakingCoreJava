@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

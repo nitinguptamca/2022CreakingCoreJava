@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 /**
  * The table inside ConcurrentHashMap is divided among Segments (which extends Reentrant Lock), each

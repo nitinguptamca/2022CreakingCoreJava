@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 /**
  * Given an integer array, find the maximum sum among all its subarrays.

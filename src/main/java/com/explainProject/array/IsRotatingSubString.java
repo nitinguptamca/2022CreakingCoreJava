@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 public class IsRotatingSubString {
     public static boolean isSubstring(String big, String small) {

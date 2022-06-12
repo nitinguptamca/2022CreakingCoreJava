@@ -1,7 +1,11 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 import java.nio.IntBuffer;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -10,6 +14,19 @@ import java.util.stream.Stream;
 //"cat", "cta", "act", "atc", "tac", "tca"
 public class AnagramListInjava8 {
     public static void main(String[] args) {
+
+        String findOutFirstRepeatingChar= "my name is Nitin kumar gupta";
+
+        Character name = Optional.of('a')
+                .orElseGet(() -> 'b');
+
+        Character sss = findOutFirstRepeatingChar.chars()
+                .mapToObj(c -> Character.valueOf((char) c))
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet().stream().filter(entry -> entry.getValue() > 1)
+                .findFirst().map(entry -> entry.getKey()).
+                orElseGet(()->'*');
+
         Stream.of("one", "two", "three", "four")
                 .filter(e -> e.length() > 3)
                 .peek(e -> System.out.println("Filtered value: " + e))
@@ -17,6 +34,8 @@ public class AnagramListInjava8 {
                 .peek(e -> System.out.println("Mapped value: " + e))
                 .collect(Collectors.toList());
     }
+
+
 
     public static void main1(String[] args) {
         String[] strArr = {"cat", "cta", "act", "atc", "tac", "tca"};

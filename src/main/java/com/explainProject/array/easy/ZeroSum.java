@@ -1,4 +1,4 @@
-package com.hardQuestion.array.easy;
+package com.explainProject.array.easy;
 
 import java.util.HashSet;
 import java.util.Set;

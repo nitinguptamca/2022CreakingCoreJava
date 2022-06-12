@@ -1,10 +1,10 @@
-package com.datastructure.sll;
+package com.datastructure.sll2.sll;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class SingleLinkedList<T extends Comparable<T>> {
+public class SingleLinkedList<T> {
 
     private Node<T> head, tail;
 
@@ -15,43 +15,10 @@ public class SingleLinkedList<T extends Comparable<T>> {
     int size;
 
 
-    public void quickSort(Node<T> first) {
-        Node<T> lastNode = getLastNode(first);
-        // Call the recursive QuickSort
-        quickSort(first, lastNode);
-    }
-
     private Node<T> getLastNode(Node<T> node) {
         while (node.next != null)
             node = node.next;
         return node;
-    }
-
-
-    private void quickSort(Node<T> firstNode, Node<T> lastNode) {
-        if (firstNode != lastNode && firstNode != lastNode.next) {
-            Node<T> temp = partition(firstNode, lastNode);
-            quickSort(firstNode, temp);
-            quickSort(temp.next, lastNode);
-        }
-    }
-
-    public Node<T> partition(Node<T> first, Node<T> last) {
-
-        Node<T> p = first;
-        Node<T> ptr = p.next;
-
-        while (ptr != null) {
-            if (p.data.compareTo(ptr.data) > 0) {
-                T pivot = p.data;
-                p.data = ptr.data;
-                ptr.data = p.next.data;
-                p.next.data = pivot;
-                p = p.next;
-            }
-            ptr = ptr.next;
-        }
-        return p;
     }
 
 
@@ -246,23 +213,6 @@ public class SingleLinkedList<T extends Comparable<T>> {
         }
     }
 
-    public void removeDuplicate() {
-        if (head == null) return;
-        Node<T> tmp = head;
-        while (tmp != null) {
-            Node<T> ptr = tmp;
-            while (ptr != null && ptr.next != null) {
-                if (tmp.data.compareTo(ptr.next.data) == 0) {
-                    ptr.next = ptr.next.next;
-                } else if (ptr.data.compareTo(ptr.next.data) == 0) {
-                    ptr.next = ptr.next.next;
-                }
-                ptr = ptr.next;
-            }
-            tmp = tmp.next;
-        }
-
-    }
 
     public void printAll() {
         Node tmp = head;
@@ -271,19 +221,6 @@ public class SingleLinkedList<T extends Comparable<T>> {
             tmp = tmp.next;
         }
         System.out.println();
-    }
-
-    public void sortBubble() {
-        if (head == null) return;
-        for (Node<T> tmp = head; tmp != null; tmp = tmp.next) {
-            for (Node<T> ptr = tmp.next; ptr != null; ptr = ptr.next) {
-                if (tmp.data.compareTo(ptr.data) > 0) {
-                    T temp = ptr.data;
-                    ptr.data = tmp.data;
-                    tmp.data = temp;
-                }
-            }
-        }
     }
 
     public void reverseOrder() {
@@ -300,48 +237,6 @@ public class SingleLinkedList<T extends Comparable<T>> {
         head = previous;
     }
 
-    public void mergeSort() {
-        if (head == null) return;
-        head = mergeSort(head);
-    }
-
-    private Node mergeSort(Node<T> h) {
-        // Base case : if head is null
-        if (h == null || h.next == null) {
-            return h;
-        }
-        // get the middle of the list
-        Node<T> middle = getMiddleNode(h);
-        Node<T> nextofmiddle = middle.next;
-        // set the next of middle node to null
-        middle.next = null;
-        // Apply mergeSort on left list
-        Node<T> left = mergeSort(h);
-        // Apply mergeSort on right list
-        Node<T> right = mergeSort(nextofmiddle);
-        // Merge the left and right lists
-        Node<T> sortedlist = sortedMerge(left, right);
-        return sortedlist;
-    }
-
-    protected Node<T> sortedMerge(Node<T> a, Node<T> b) {
-        Node<T> result = null;
-        /* Base cases */
-        if (a == null)
-            return b;
-        if (b == null)
-            return a;
-
-        /* Pick either a or b, and recur */
-        if (a.data.compareTo(b.data) > 0) {
-            result = a;
-            result.next = sortedMerge(a.next, b);
-        } else {
-            result = b;
-            result.next = sortedMerge(a, b.next);
-        }
-        return result;
-    }
 
     public void mergeList(Node<T> head, Node<T> head1) {
         Node<T> t = tail;
@@ -403,8 +298,7 @@ public class SingleLinkedList<T extends Comparable<T>> {
     }
 
 
-
-    private static class Node<T extends Comparable<T>> {
+    private static class Node<T> {
         T data;
         Node<T> next;
 

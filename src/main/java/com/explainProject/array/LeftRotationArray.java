@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 //Rotate Matrix by 90 Degrees in Java
 

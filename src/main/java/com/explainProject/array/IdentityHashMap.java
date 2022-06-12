@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 import java.util.LinkedHashMap;
 import java.util.function.Function;

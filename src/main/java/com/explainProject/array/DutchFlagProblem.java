@@ -1,4 +1,4 @@
-package com.hardQuestion.array;
+package com.explainProject.array;
 
 import java.util.Arrays;
 import java.util.List;
