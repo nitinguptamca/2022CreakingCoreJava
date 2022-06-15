@@ -28,5 +28,9 @@ public class WordsCountProgram {
                         .toLowerCase().trim()).filter(word -> word.length() > 0)
                 .map(word -> new AbstractMap.SimpleEntry<>(word, 1))
                 .collect(Collectors.groupingBy(AbstractMap.SimpleEntry::getKey, Collectors.counting()));
+
+        List<String> ssssss = Files.readAllLines(path);
+        ssssss.stream().flatMap( line -> line.lines().map(ll -> ll.strip().split(" "))).flatMap(Stream::of).collect(Collectors.toUnmodifiableList())
+                .stream().map(word -> word.replaceAll("[^a-zA-Z]","").toLowerCase().strip());
         }
 }

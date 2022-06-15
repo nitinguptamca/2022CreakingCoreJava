@@ -15,7 +15,10 @@ public class TestingSLL {
         list.addAtFirst(30);
         list.addAtFirst(40);
         list.addAtFirst(11);
-        System.out.println(list.detectCycleInLinkedList(list.getHead()));
+        list.printAll();
+        list.delete(40);
+        list.printAll();
+       // System.out.println(list.detectCycleInLinkedList(list.getHead()));
        /* list.addAtLast(10);
         list.addAtLast(20);
         list.addAtLast(30);
@@ -55,7 +58,7 @@ public class TestingSLL {
         //list.reverseOrder();
         // list.printAll();
         //list.mergeSort();
-        list.printAll();
+
         /// SingleLinkedList.Node<Integer> vvv = list.sortedMerge(list.getHead(), list.getHead());
         ///  list.quickSort(list.getHead());
         // list.printAll();

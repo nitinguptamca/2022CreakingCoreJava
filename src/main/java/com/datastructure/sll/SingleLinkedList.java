@@ -1,5 +1,7 @@
 package com.datastructure.sll;
 
+import com.datastructure.map.CustomHashMap;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -26,6 +28,8 @@ public class SingleLinkedList<T extends Comparable<T>> {
             node = node.next;
         return node;
     }
+
+
 
 
     private void quickSort(Node<T> firstNode, Node<T> lastNode) {
@@ -402,6 +406,33 @@ public class SingleLinkedList<T extends Comparable<T>> {
         }
     }
 
+    public boolean deleteNode(Node<T> deleteNode) {
+
+        Node<T>  ptr = head;
+        Node<T> prev = head;
+        int count=0;
+        while (ptr != null) {
+           if(ptr.data.compareTo(deleteNode.data)==0){
+               if(count==0) removeAtFirst();
+               else if(count==size) removeAtLast();
+               else{
+                  Node<T>  beforeCurrent =prev;
+                  beforeCurrent.next=beforeCurrent.next.next;
+                  return true;
+               }
+               return true;
+           }
+           prev=ptr;
+           ptr=ptr.next;
+           count++;
+        }
+        return false;
+    }
+
+    public boolean delete(T data) {
+        Node deleteNode= new Node<>(data);
+        return deleteNode(deleteNode);
+    }
 
 
     private static class Node<T extends Comparable<T>> {

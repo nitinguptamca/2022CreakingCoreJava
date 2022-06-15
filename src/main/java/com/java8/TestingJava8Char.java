@@ -2,6 +2,7 @@ package com.java8;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,7 +13,6 @@ public class TestingJava8Char {
         str.chars().mapToObj(c -> Character.valueOf((char)c)).
                 collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new ,Collectors.counting()))
                 .entrySet().stream().map(entry -> entry.getKey()).collect(Collectors.toUnmodifiableList());
-
 
     }
 }
